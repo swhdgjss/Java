@@ -1,11 +1,9 @@
 package Bank;
 
 public class Account {
-	public final String name;
 	private double balance;
 	
-	public Account(String name, double money) {
-		this.name = name;
+	public Account(double money) {
 		balance = money;
 	}
 	public double getBalance() {
@@ -16,13 +14,17 @@ public class Account {
 		balance += money;
 	}
 	
-	public void debit(double money) {
+	public String debit(double money) {
 		balance -= money;
 		if(balance <= 0) {
-			System.out.println("Debit amount exceeded account balance");
 			balance += money;
+			return "Debit amount exceeded account balance";
 		} else {
-			System.out.printf("subtracting %f from account balance", money);
+			return "subtracting %f from account balance";
 		}
+	}
+	
+	protected void setBalance(double money) {
+		this.balance = money;
 	}
 }
