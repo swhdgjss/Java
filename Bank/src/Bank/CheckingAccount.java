@@ -1,6 +1,6 @@
 package Bank;
 
-public class CheckingAccount extends Account{
+public class CheckingAccount extends Account implements Valuable{
 	private double creditLimit, interest, loanInterest;
 	
 	public CheckingAccount(double balance, double creditLimit, double interest, double loanInterest) {
@@ -47,5 +47,14 @@ public class CheckingAccount extends Account{
 		} else {
 			return false;
 		}
+	}
+	
+	@Override public double estimateValue(int month) {
+		this.passTime(month);
+		return this.getBalance();
+	}
+	
+	public String toString() {
+		return String.format("ChekingAccount_Balance: %s", this.getBalance());
 	}
 }

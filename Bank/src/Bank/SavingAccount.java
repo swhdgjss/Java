@@ -1,6 +1,6 @@
 package Bank;
 
-public class SavingAccount extends Account{
+public class SavingAccount extends Account implements Valuable{
 	private double interest;
 	private int time = 0;
 	
@@ -32,5 +32,13 @@ public class SavingAccount extends Account{
 		if(this.time == 12) {
 			this.setBalance(this.getBalance() * Math.pow(1 + interest, this.time));
 		}		
+	}
+	
+	@Override public double estimateValue(int month) {
+		return this.getBalance() * Math.pow(1 + interest, month);
+	}
+	
+	public String toString() {
+		return String.format("SavingAccount_Balance: %s", this.getBalance());
 	}
 }
