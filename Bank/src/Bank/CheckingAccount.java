@@ -12,12 +12,13 @@ public class CheckingAccount extends Account implements Valuable{
 	}
 	
 	@Override
-	public String debit(double a) {
-		if(this.getBalance() + creditLimit < a) {
-				return "Debit amount exceeded account balance";
-		} else {
-			this.setBalance(this.getBalance() - a);
-			return null;
+	public void debit(double amount) throws Exception {
+		if(amount < 0) {
+			throw new Exception("음수입력!");
+		} else if(amount > this.getWithdrawableAccount()) {
+			throw new Exception("Debit amount exceeded account balance.");
+		}else {
+			this.setBalance(this.getBalance() - amount);
 		}
 	}
 	

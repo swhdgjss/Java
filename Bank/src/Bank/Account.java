@@ -14,14 +14,8 @@ public abstract class Account {
 		balance += money;
 	}
 	
-	public String debit(double money) {
-		balance -= money;
-		if(balance <= 0) {
-			balance += money;
-			return "Debit amount exceeded account balance";
-		} else {
-			return "subtracting %f from account balance";
-		}
+	public void debit(double amount) throws Exception {
+		balance -= amount;
 	}
 	
 	protected void setBalance(double money) {

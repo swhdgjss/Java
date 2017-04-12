@@ -9,13 +9,14 @@ public class SavingAccount extends Account implements Valuable{
 		this.interest = interest;
 	}
 	
-	public String debit(double money) {
-		if(time < 12) {
-			System.out.println("아직 출금할 수 없습니다.");
-			return "아직 출금할 수 없습니다.";
-		} else {
-			this.setBalance(this.getBalance() - money);
-			return null;
+	@Override
+	public void debit(double amount) throws Exception {
+		if(amount < 0) {
+			throw new Exception();
+		} else if(amount > this.getWithdrawableAccount()) {
+			throw new Exception();
+		}else {
+			this.setBalance(this.getBalance() - amount);
 		}
 	}
 	
