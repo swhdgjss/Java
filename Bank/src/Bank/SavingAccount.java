@@ -13,9 +13,11 @@ public class SavingAccount extends Account implements Valuable{
 	public void debit(double amount) throws Exception {
 		if(amount < 0) {
 			throw new Exception();
+		} else if(amount > this.getWithdrawableAccount() && this.time < 12) {
+			throw new Exception("아직 출금할 수 없습니다.");
 		} else if(amount > this.getWithdrawableAccount()) {
-			throw new Exception();
-		}else {
+			throw new Exception("Debit amount exceeded account balance.");
+		} else {
 			this.setBalance(this.getBalance() - amount);
 		}
 	}
