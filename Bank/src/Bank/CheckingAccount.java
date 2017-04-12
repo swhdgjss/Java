@@ -18,7 +18,7 @@ public class CheckingAccount extends Account implements Valuable{
 		} else if(amount > this.getWithdrawableAccount()) {
 			throw new Exception("Debit amount exceeded account balance.");
 		}else {
-			this.setBalance(this.getBalance() - amount);
+			super.debit(amount);
 		}
 	}
 	
