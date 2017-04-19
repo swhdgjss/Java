@@ -30,8 +30,15 @@ public class SavingAccount extends Account implements Valuable{
 		}
 	}
 
-	public void passTime(int time) {
+	@Override public void passTime(int time) {
 		this.time += time;
+		if(this.time == 12) {
+			this.setBalance(this.getBalance() * Math.pow(1 + interest, this.time));
+		}		
+	}
+	
+	@Override public void passTime() {
+		this.time ++;
 		if(this.time == 12) {
 			this.setBalance(this.getBalance() * Math.pow(1 + interest, this.time));
 		}		
@@ -39,6 +46,10 @@ public class SavingAccount extends Account implements Valuable{
 	
 	@Override public double estimateValue(int month) {
 		return this.getBalance() * Math.pow(1 + interest, month);
+	}
+	
+	@Override public double estimateValue() {
+		return this.getBalance() * Math.pow(1 + interest, 1);
 	}
 	
 	public String toString() {

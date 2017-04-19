@@ -13,6 +13,10 @@ public class Human implements Valuable{
 		return Double.POSITIVE_INFINITY;
 	}
 	
+	@Override public double estimateValue() {
+		return Double.POSITIVE_INFINITY;
+	}
+	
 	public String toString() {
 		return String.format("Human name : %s", this.name);
 	}

@@ -38,8 +38,12 @@ public class CheckingAccount extends Account implements Valuable{
 		}
 	}
 
-	public void passTime(int time) {
+	@Override public void passTime(int time) {
 		this.setBalance(this.getBalance() * Math.pow((1 + interest), time));
+	}
+	
+	@Override public void passTime() {
+		this.setBalance(this.getBalance() * Math.pow((1 + interest), 1));
 	}
 	
 	public boolean isBankrupted() {
@@ -52,6 +56,11 @@ public class CheckingAccount extends Account implements Valuable{
 	
 	@Override public double estimateValue(int month) {
 		this.passTime(month);
+		return this.getBalance();
+	}
+	
+	@Override public double estimateValue() {
+		this.passTime();
 		return this.getBalance();
 	}
 	

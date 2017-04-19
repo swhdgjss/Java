@@ -25,4 +25,6 @@ public abstract class Account {
 	public abstract double getWithdrawableAccount();
 	
 	public abstract void passTime(int time);
+	
+	public abstract void passTime();
 }
