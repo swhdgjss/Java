@@ -1,5 +1,8 @@
 package Bank;
 
+
+import java.util.ArrayList;
+
 public abstract class Account {
 	private double balance;
 	
@@ -27,4 +30,18 @@ public abstract class Account {
 	public abstract void passTime(int time);
 	
 	public abstract void passTime();
+	
+	public static double sumForAccount(ArrayList<Account> list) {
+		double sum = 0;
+		for(Account account: list ) {
+			sum += account.getBalance();
+		}
+		return sum;
+	}
+	
+	public static void passTimeForLIst(ArrayList <Account> list, int month) {
+		for(Account account: list) {
+			account.passTime(month);
+		}
+	}
 }
