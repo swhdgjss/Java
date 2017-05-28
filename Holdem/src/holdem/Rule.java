@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Rule extends Card{
-	public ArrayList<Tuple> Community = new ArrayList<Tuple>(6);
+	public ArrayList<Tuple> Board = new ArrayList<Tuple>(6);
 	public Random random = new Random();
 	public Card card = new Card();
 	
@@ -23,5 +23,5 @@ public class Rule extends Card{
 		return t;
 	}
 
-
+	
 }
