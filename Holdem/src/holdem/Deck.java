@@ -1,6 +1,6 @@
 package holdem;
 
-public class Card {
+public class Deck {
 	public int[][] deck = new int[4][14];
 	
 	public boolean determine(int x, int y) {

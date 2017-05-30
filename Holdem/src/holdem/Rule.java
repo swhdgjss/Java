@@ -3,10 +3,10 @@ package holdem;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Rule extends Card{
+public class Rule{
 	public ArrayList<Tuple> Board = new ArrayList<Tuple>(6);
 	public Random random = new Random();
-	public Card card = new Card();
+	public Deck card = new Deck();
 	
 	public Tuple deal() {
 		boolean check = true;
@@ -22,6 +22,4 @@ public class Rule extends Card{
 		
 		return t;
 	}
-
-	
 }

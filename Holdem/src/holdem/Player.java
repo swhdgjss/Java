@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Player extends Rule{
 	public String name;
-	public ArrayList<Tuple> hand;
+	public ArrayList<Tuple> card;
 
 	public Player(String name) {
 		this.name = name;
-		hand = new ArrayList<Tuple>(8);
+		card = new ArrayList<Tuple>(8);
 	}
 }
