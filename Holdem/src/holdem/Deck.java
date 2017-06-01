@@ -1,5 +1,6 @@
 package holdem;
 
+import java.util.Arrays;
 public class Deck {
 	public int[][] deck = new int[4][14];
 	
@@ -16,10 +17,6 @@ public class Deck {
 	}
 	
 	public void clear() {
-		for(int i = 0; i < 4; i++) {
-			for(int j = 0; j < 14; j++) {
-				deck[i][j] = 0;
-			}
-		}
+		Arrays.fill(deck, 0);
 	}
 }

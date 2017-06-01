@@ -9,11 +9,11 @@ public class Tuple {
 		this.y = y;
 	}
 	
-	public int getX()	{
+	public int getX() {
 		return x;
 	}
 
-	public int getY()	{
+	public int getY() {
 		return y;
 	}
 

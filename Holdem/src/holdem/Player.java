@@ -19,4 +19,12 @@ public class Player extends Rule{
 		tmp = this.deal();
 		card.add(tmp);
 	}
+	
+	public void clear() {
+		card.clear();
+	}
+	
+	public void determineHands() {
+		card.addAll(board);
+	}
 }
