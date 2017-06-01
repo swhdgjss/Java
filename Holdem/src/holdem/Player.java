@@ -10,4 +10,13 @@ public class Player extends Rule{
 		this.name = name;
 		card = new ArrayList<Tuple>(8);
 	}
+	
+	public void get() {
+		Tuple tmp;
+		
+		tmp = this.deal();
+		card.add(tmp);
+		tmp = this.deal();
+		card.add(tmp);
+	}
 }
