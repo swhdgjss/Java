@@ -25,6 +25,32 @@ public class Player extends Rule{
 	}
 	
 	public void determineHands() {
+		String[] hand = new String[3];
+		
 		card.addAll(board);
+		hand = hands(card);
+		
+		switch(hand[0]) {
+		case "Royal Straigh Flush":
+			break;
+		case "Straight Flush":
+			break;
+		case "Four Card":
+			break;
+		case "Full House":
+			break;
+		case "Flush":
+			break;
+		case "Straight":
+			break;
+		case "Triple":
+			break;
+		case "Two Pair":
+			break;
+		case "One Pair":
+			break;
+		default:
+			
+		}
 	}
 }
