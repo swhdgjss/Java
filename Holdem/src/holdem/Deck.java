@@ -2,7 +2,7 @@ package holdem;
 
 import java.util.Arrays;
 public class Deck {
-	public int[][] deck = new int[4][14];
+	public int[][] deck = new int[4][14]; //0 : Spade 1 : Diamond 2 : Heart 3 : Clover
 	
 	public boolean determine(int x, int y) {
 		if(deck[x][y] == 1) {

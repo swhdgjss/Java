@@ -31,26 +31,74 @@ public class Player extends Rule{
 		hand = hands(card);
 		
 		switch(hand[0]) {
-		case "Royal Straigh Flush":
+		case "Royal Straight Flush":
+			switch(hand[1]) {
+			case "0":
+				System.out.println("Spade" + hand[0]);
+				break;
+			case "1":
+				System.out.println("Daimond" + hand[0]);
+				break;
+			case "2":
+				System.out.println("Heart" + hand[0]);
+				break;
+			case "3":
+				System.out.println("Clover" + hand[0]);
+				break;
+			}
 			break;
 		case "Straight Flush":
+			switch(hand[1]) {
+			case "0":
+				System.out.println("Spade" + hand[2] + hand[0]);
+				break;
+			case "1":
+				System.out.println("Daimond" + hand[2] + hand[0]);
+				break;
+			case "2":
+				System.out.println("Heart" + hand[2] + hand[0]);
+				break;
+			case "3":
+				System.out.println("Clover" + hand[2] + hand[0]);
+				break;
+			}
 			break;
 		case "Four Card":
+			System.out.println(hand[1] + hand[0]);
 			break;
 		case "Full House":
+			System.out.println(hand[1] + hand[2] + hand[0]);
 			break;
 		case "Flush":
+			switch(hand[1]) {
+			case "0":
+				System.out.println("Spade" + hand[0]);
+				break;
+			case "1":
+				System.out.println("Daimond" + hand[0]);
+				break;
+			case "2":
+				System.out.println("Heart" + hand[0]);
+				break;
+			case "3":
+				System.out.println("Clover" + hand[0]);
+				break;
+			}
 			break;
 		case "Straight":
+			System.out.println(hand[1] + hand[0]);
 			break;
 		case "Triple":
+			System.out.println(hand[1] + hand[0]);
 			break;
 		case "Two Pair":
+			System.out.println(hand[1] + hand[2] + hand[0]);
 			break;
 		case "One Pair":
+			System.out.println(hand[1] + hand[0]);
 			break;
 		default:
-			
+			System.out.println("No Pair");
 		}
 	}
 }
