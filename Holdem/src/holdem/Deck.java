@@ -1,6 +1,7 @@
 package holdem;
 
 import java.util.Arrays;
+
 public class Deck {
 	public int[][] deck = new int[4][15]; //0 : Spade 1 : Diamond 2 : Heart 3 : Clover
 	
