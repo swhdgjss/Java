@@ -14,7 +14,7 @@ public class Rule{
 
 		do {
 			x = random.nextInt(4);
-			y = random.nextInt(13) + 1;
+			y = random.nextInt(13) + 2;
 			check = deck.determine(x, y);
 		} while(check == false);
 		deck.use(x, y);
@@ -34,7 +34,7 @@ public class Rule{
 	
 	public void flopOpen() {
 		flop();
-		System.out.println(board);
+		this.print(this.board);
 	}
 	
 	public void turn() {
@@ -46,7 +46,7 @@ public class Rule{
 	
 	public void turnOpen() {
 		turn();
-		System.out.println(board);
+		this.print(this.board);
 	}
 	
 	public void river() {
@@ -58,7 +58,14 @@ public class Rule{
 	
 	public void riverOpen() {
 		river();
-		System.out.println(board);
+		this.print(this.board);
+	}
+	
+	public void print(ArrayList<Tuple> board) {
+		for(Tuple tmp : board) {
+			System.out.print(tmp.getX() + ", " + tmp.getY() + " | ");
+		}
+		System.out.println();
 	}
 	
 	public void clear() {
@@ -66,8 +73,10 @@ public class Rule{
 	}
 	
 	public String[] hands(ArrayList<Tuple> card) {
-		String[][] hand = new String[3][9];
+		String[][] hand = new String[9][3];
+		String[] no = new String[1];
 		
+		no[0] = "No";
 		hand[0] = isRoyalStraightFlush(card);
 		hand[1] = isStraighFlush(card);
 		hand[2] = isFourCard(card);
@@ -79,15 +88,13 @@ public class Rule{
 		hand[8] = isOnePair(card);
 		
 		for(String[] tmp : hand) {
-			if(tmp != null) {
-				return tmp;
-			}
+			if(tmp[0] != null) return tmp;
 		}
-		return null;
+		return no;
 	}
 	
 	public String[] isRoyalStraightFlush(ArrayList<Tuple> card) {
-		int[][] c = new int[4][14];
+		int[][] c = new int[4][15];
 		int x, y;
 		String[] result = new String[2];
 		
@@ -107,7 +114,7 @@ public class Rule{
 	}
 	
 	public String[] isStraighFlush(ArrayList<Tuple> card) {
-		int[][] c = new int[4][14];
+		int[][] c = new int[4][15];
 		int x, y;
 		String[] result = new String[3];
 		
@@ -118,7 +125,7 @@ public class Rule{
 		}
 		
 		for(int i = 0; i < 4; i++) {
-			for(int j = 0; j < 10; i++) {
+			for(int j = 0; j < 10; j++) {
 				if(c[i][j] == 1 && c[i][j + 1] == 1 && c[i][j + 2] == 1 && c[i][j + 3] == 1 && c[i][j + 4] == 1) {
 					result[0] = "Straight Flush";
 					result[1] = Integer.toString(i);
@@ -134,7 +141,7 @@ public class Rule{
 	}
 	
 	public String[] isFourCard(ArrayList<Tuple> card) {
-		int[] c = new int[14];
+		int[] c = new int[15];
 		int y;
 		String[] result = new String[2];
 		
@@ -153,7 +160,7 @@ public class Rule{
 	}
 	
 	public String[] isFullHouse(ArrayList<Tuple> card) {
-		int[] c = new int[14];
+		int[] c = new int[15];
 		int y;
 		String[] result = new String[3];
 		
@@ -194,7 +201,7 @@ public class Rule{
 	}
 	
 	public String[] isStraight(ArrayList<Tuple> card) {
-		int[] c = new int[14];
+		int[] c = new int[15];
 		int y;
 		String[] result = new String[2];
 		
@@ -203,7 +210,7 @@ public class Rule{
 			c[y]++;
 		}
 		
-		for(int i = 1; i <= 11; i++) {
+		for(int i = 1; i <= 10; i++) {
 			if(c[i] == 1 && c[i + 1] == 1 && c[i + 2] == 1 && c[i + 3] == 1 && c[i + 4] == 1) {
 				result[0] = "Straight";
 				result[1] = Integer.toString(i);
@@ -216,7 +223,7 @@ public class Rule{
 	}
 	
 	public String[] isTriple(ArrayList<Tuple> card) {
-		int[] c = new int[14];
+		int[] c = new int[15];
 		int y;
 		String[] result = new String[2];
 
@@ -235,7 +242,7 @@ public class Rule{
 	}
 	
 	public String[] isTwoPair(ArrayList<Tuple> card) {
-		int[] c = new int[14];
+		int[] c = new int[15];
 		int y;
 		String[] result = new String[3];
 		
@@ -246,7 +253,7 @@ public class Rule{
 		
 		for(int i = 1; i <= 14; i++) {
 			for(int j = 1; j <= 14; j++) {
-				if(c[i] == 2 && c[j] == 2) {
+				if(c[i] == 2 && c[j] == 2 && i != j) {
 					result[0] = "Two Pair";
 					result[1] = Integer.toString(i);
 					result[2] = Integer.toString(j);
@@ -257,7 +264,7 @@ public class Rule{
 	}
 	
 	public String[] isOnePair(ArrayList<Tuple> card) {
-		int[] c = new int[14];
+		int[] c = new int[15];
 		int y;
 		String[] result = new String[2];
 		
