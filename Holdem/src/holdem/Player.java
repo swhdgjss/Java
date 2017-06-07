@@ -6,6 +6,7 @@ public class Player extends Rule{
 	public String name;
 	public ArrayList<Tuple> card;
 	Rule rule = new Rule();
+	Num num = new Num();
 
 	public Player(String name) {
 		this.name = name;
@@ -66,24 +67,24 @@ public class Player extends Rule{
 		case "Straight Flush":
 			switch(hand[1]) {
 			case "0":
-				System.out.println("Spade" + " " + hand[2] + " " + hand[0]);
+				System.out.println("Spade" + " " + num.getNum(hand[2]) + " " + hand[0]);
 				break;
 			case "1":
-				System.out.println("Daimond" + " " + hand[2] + " " + hand[0]);
+				System.out.println("Daimond" + " " + num.getNum(hand[2]) + " " + hand[0]);
 				break;
 			case "2":
-				System.out.println("Heart" + " " + hand[2] + " " + hand[0]);
+				System.out.println("Heart" + " " + num.getNum(hand[2]) + " " + hand[0]);
 				break;
 			case "3":
-				System.out.println("Clover" + " " + hand[2] + " " + hand[0]);
+				System.out.println("Clover" + " " + num.getNum(hand[2]) + " " + hand[0]);
 				break;
 			}
 			break;
 		case "Four Card":
-			System.out.println(hand[1] + " " + hand[0]);
+			System.out.println(num.getNum(hand[1]) + " " + hand[0]);
 			break;
 		case "Full House":
-			System.out.println(hand[1] + " " + hand[2] + " " + hand[0]);
+			System.out.println(num.getNum(hand[1]) + " " + num.getNum(hand[2]) + " " + hand[0]);
 			break;
 		case "Flush":
 			switch(hand[1]) {
@@ -102,16 +103,16 @@ public class Player extends Rule{
 			}
 			break;
 		case "Straight":
-			System.out.println(hand[1] + " " + hand[0]);
+			System.out.println(num.getNum(hand[1]) + " " + hand[0]);
 			break;
 		case "Triple":
-			System.out.println(hand[1] + " " + hand[0]);
+			System.out.println(num.getNum(hand[1]) + " " + hand[0]);
 			break;
 		case "Two Pair":
-			System.out.println(hand[1] + " " + hand[2] + " " + hand[0]);
+			System.out.println(num.getNum(hand[1]) + " " + num.getNum(hand[2]) + " " + hand[0]);
 			break;
 		case "One Pair":
-			System.out.println(hand[1] + " " + hand[0]);
+			System.out.println(num.getNum(hand[1]) + " " + hand[0]);
 			break;
 		default:
 			System.out.println("No Pair");
